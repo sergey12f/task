@@ -2,9 +2,9 @@ import json
 import os
 current_file = os.path.realpath(__file__)
 current_directory = os.path.dirname(current_file)
-with open(current_directory+'/values.json','r') as file:
+with open(input("путь к value в формате C:/task3/values.json:\n"),'r') as file:
 	value1 = json.load(file)
-with open(current_directory+'/tests.json','r') as file:
+with open(input("путь к tests в формате C:/task3/tests.json:\n"),'r') as file:
 	tests = json.load(file)
 
 
@@ -30,5 +30,5 @@ def recursive(obj):
 
 print(recursive(tests))
 result = json.loads(json.dumps(tests))
-with open(current_directory+"/result.json","w") as file:
+with open(input('куда сохранить result в формате C:/task3/result.json:\n'),"w") as file:
 	json.dump(result,file,indent =2)
