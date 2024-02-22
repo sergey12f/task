@@ -1,11 +1,12 @@
 import json
-import os
-current_file = os.path.realpath(__file__)
-current_directory = os.path.dirname(current_file)
-with open(input("путь к value в формате C:/task3/values.json:\n"),'r') as file:
-	value1 = json.load(file)
-with open(input("путь к tests в формате C:/task3/tests.json:\n"),'r') as file:
-	tests = json.load(file)
+import sys
+for x in range(len(sys.argv)):
+	if 'values.json' in sys.argv[x]:
+		with open(sys.argv[x],'r') as file:
+			value1 = json.load(file)
+	if 'tests.json' in sys.argv[x]:
+		with open(sys.argv[x],'r') as file:
+			tests = json.load(file)
 
 
 
@@ -30,5 +31,7 @@ def recursive(obj):
 
 print(recursive(tests))
 result = json.loads(json.dumps(tests))
-with open(input('куда сохранить result в формате C:/task3/result.json:\n'),"w") as file:
-	json.dump(result,file,indent =2)
+for x in range(len(sys.argv)):
+	if 'result.json' in sys.argv[x]:
+		with open(sys.argv[3],"w") as file:
+			json.dump(result,file,indent =2)

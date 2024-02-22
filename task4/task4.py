@@ -1,5 +1,7 @@
+import sys
 import re
-with open(input("путь к файлу в формате C:/Users/list.txt:\n"),'r') as file:
+print(sys.argv[1])
+with open(sys.argv[1],'r') as file:
     nums = list(file)
 
 for i in range(len(nums)):
